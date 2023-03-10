@@ -98,7 +98,6 @@
 </template>
 
 <script setup>
-import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/vue";
 import { ChevronDownIcon } from "@heroicons/vue/20/solid";
 import ConfirmDialog from "primevue/confirmdialog";
 import Button from "primevue/button";

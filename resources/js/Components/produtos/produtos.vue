@@ -43,7 +43,7 @@
 <script setup>
 import { onMounted, ref,onUpdated, reactive } from '@vue/runtime-core';
 import axios from 'axios';
-import { useForm } from '@inertiajs/inertia-vue3'
+import { useForm } from '@inertiajs/inertia'
 import Produto from './produto.vue';
 import { useStore } from 'vuex';
 import Progress from '@/components/confirmation/progress.vue'

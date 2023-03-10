@@ -39,7 +39,7 @@ import Fornecedores from '../components/fornecedores/index.vue'
 import Sessoes from '@/components/PontoDeVenda/sessoes.vue';
 import Index from '@/layouts/index.vue'
 import { onMounted, reactive ,ref} from '@vue/runtime-core';
-import Menu from '@/components/PontoDeVenda/Menu.vue';
+import Menu from '@/components/PontoDeVenda/menu.vue';
 import Produtos from '@/components/produtos/produtos.vue'
 import Orden from '@/components/PontoDeVenda/Orden.vue'
 import Gastos from '@/components/PontoDeVenda/gastos.vue'
@@ -67,9 +67,7 @@ const menus = ref([
 ])
 
 const props = defineProps({
-    app:Object,
-    user:Object,
-    caixas: Object
+    data: Object
 });
 const toast = useToast()
 const modul = ref('Ponto de venda')
@@ -80,8 +78,8 @@ const dados_caixa = ref();
 const data = reactive({
     Apps:null,
     dados: {
-        caixas: props.caixas,
-        user:props.user,
+        caixas: props.data,
+        user:store.state.user,
     }
 });
 
@@ -153,5 +151,5 @@ const AbrirCaixa = (payload) => {
 </script>
 
 <style scoped lang="scss">
-@import '../../assets/PontoVenda/css/PontoVenda.scss';
+@import '../../assets/PontoVenda/css/PontoVenda';
 </style>

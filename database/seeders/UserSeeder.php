@@ -15,17 +15,19 @@ class UserSeeder extends Seeder
     {
         DB::table('users')->insert([
             [
-                'apelido' => 'Admin',
+                'surname' => 'Admin',
                 'email' => 'admin@gmail.com',
-                'nome_completo' => 'Administrador',
-                'nivel' => 'Administrador',
+                'company_id' => '1',
+                'image'=> '4ezVrI5czQlWv0Pg.jpeg',
+                'name' => 'Administrador',
                 'password' => '$2y$10$abLBYBFqKz/AcHPRZRBu/uMrFnRjcCEQjKoEd3d4tIlRmeKAWz1zm'
             ],
             [
-                'apelido' => 'Administrador do sistema',
+                'surname' => 'Administrador do sistema',
                 'email' => 'elhadjd73@gmail.com',
-                'nome_completo' => 'Administrador do sistema',
-                'nivel' => 'Administrador do sistema',
+                'company_id' => '1',
+                'image'=> '4ezVrI5czQlWv0Pg.jpeg',
+                'name' => 'Administrador do sistema',
                 'password' => '$2y$10$EtOByse9f.5QqFpxnPm/HeiTrWEnH5jngb5KnDr7CXOWtuFEl19mi'
             ]
         ]);

@@ -2,11 +2,11 @@
   <div class="principal">
     <header class="header">
       <div class="LOGO">
-        <img :src="'/login/image/' + props.Empresa.imagem" alt="" />
+        <img :src="'/login/image/' + props.data.image" alt="" />
       </div>
       <div @click="MostrarDrop = !MostrarDrop" class="user">
-        <img :src="'/login/image/' + props.user.imagem" alt="" />
-        <span>{{ props.user.apelido }}</span>
+        <img :src="'/login/image/' + props.user.image" alt="" />
+        <span>{{ props.user.surname }}</span>
         <div v-show="MostrarDrop" class="logOut">
           <div @click="Sair" class="Sair">
             Sair <i class="fa fa-sign-out"></i>
@@ -17,48 +17,39 @@
     <div class="Container">
       <div class="Content">
         <Link
-          v-for="Apps in props.app"
-          :key="Apps.id"
-          :href="route(Apps.app_name)"
+          v-for="app in props.data.apps"
+          :key="app.id"
+          :href="route(app.name)"
         >
           <div>
-            <img :src="'/login/image/' + Apps.image" alt="" />
+            <img :src="'/login/image/' + app.image" alt="" />
           </div>
-          <span class="name_app">{{ Apps.app_name }}</span>
+          <span class="name_app">{{ app.name }}</span>
         </Link>
       </div>
     </div>
   </div>
-  <!-- <h1 data-text="Loading...">
-            Loading...
-        </h1> -->
 </template>
 <script setup>
 import { onMounted, ref } from "@vue/runtime-core";
 import { useStore } from "vuex";
 import Index from "@/layouts/index.vue";
 import { Link } from "@inertiajs/vue3";
+import { Inertia } from "@inertiajs/inertia";
 const store = useStore();
 const MostrarDrop = ref(false);
 const props = defineProps({
-  app: Object,
+  data: Object,
   user: Object,
-  Empresa: Object,
-});
-
-const data = ref({
-  Apps: [],
 });
 
 const Sair = () => {
-  Link("/sair");
+  Inertia.post("/auth/logout");
 };
 
 onMounted(() => {
-  store.state.user = props.user;
-  data.value.Apps = props.app;
-  store.state.Apps = props.app;
-  store.commit("ArmazenarDados", props.Empresa);
+  console.log(props.data);
+  store.commit("ArmazenarDados", props);
 });
 </script>
 

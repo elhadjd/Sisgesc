@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\company;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -9,16 +10,12 @@ use Inertia\Inertia;
 
 class DashboardController extends Controller
 {
-    public function Dashboard()
+    public function Dashboard(Request $request)
     {
-        $user = Auth::user();
-        $app = DB::table('apps')->where('estado', 'Ativo')->orderBy('app_name', 'ASC')->get();
-        $empresa = DB::table('empresas')->orderBy('id', 'ASC')->first();
 
-        return Inertia::render('Dashboard', [
-            'Empresa' => $empresa,
-            'app' => $app,
-            'user' => $user
+        return Inertia::render('Dashboard',[
+            'data'=> company::find($request->user()->id),
+            'user' => $request->user(),
         ]);
     }
 }

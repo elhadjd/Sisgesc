@@ -2,22 +2,20 @@
 
 namespace Database\Seeders;
 
-use App\Models\license;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class LicenseSeeder extends Seeder
+class companySeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        license::create([
-            'company_id' => '1',
-            'from' => now(),
-            'to' => now(),
+        DB::table('companies')->insert([
+            'name' => 'LEONARDO RV COMERCIO E SERVIÇOS (SU) LDA',
+            'image'=> 'logo.png'
         ]);
     }
 }

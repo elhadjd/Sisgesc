@@ -7,6 +7,7 @@ use App\Http\Controllers\Config\configController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Faturacao\faturacaoController;
 use App\Http\Controllers\Funcionarios\funcionarioController;
+use App\Http\Controllers\PDV\CaixaController;
 use App\Http\Controllers\PDV\pontoVendaController;
 use App\Http\Controllers\Stock\stockController;
 use Illuminate\Support\Facades\Route;
@@ -22,7 +23,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('license')->group(function () {
+// Route::middleware('license')->group(function () {
 
     Route::get('/databases', function () {
         return ([['name' => 'test'], ['name' => 'Loja2'], ['name' => 'Loja3']]);
@@ -34,7 +35,7 @@ Route::middleware('license')->group(function () {
         Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
     });
 
-    
+
     Route::middleware('auth')->group(function () {
         Route::get('/', [DashboardController::class, 'Dashboard'])->name('dashboard');
 
@@ -42,6 +43,12 @@ Route::middleware('license')->group(function () {
             Route::controller(pontoVendaController::class)->group(function(){
                 Route::get('Home','Index')->name('pontodevenda');
             });
+            Route::prefix('caixa')->group(function(){
+            Route::controller(CaixaController::class)->group(function(){
+                Route::get('buscar','get');
+                Route::get('show/{caixa}','get');
+            });
+        });
         });
 
         Route::prefix('compra')->group(function(){
@@ -56,13 +63,13 @@ Route::middleware('license')->group(function () {
             });
         });
 
-        
+
         Route::prefix('Faturacao')->group(function(){
             Route::controller(faturacaoController::class)->group(function(){
                 Route::get('Home','Index')->name('faturacao');
             });
         });
-        
+
         Route::prefix('Stock')->group(function(){
             Route::controller(stockController::class)->group(function(){
                 Route::get('Home','Index')->name('stock');
@@ -75,6 +82,6 @@ Route::middleware('license')->group(function () {
             });
         });
     });
-});
+// });
 
 // require __DIR__ . '/auth.php';

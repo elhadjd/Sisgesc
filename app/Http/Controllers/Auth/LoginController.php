@@ -21,14 +21,14 @@ class LoginController extends Controller
             'email' => 'required|email'
         ]);
         $credencias = [
+            'email' => $request->email,
             "password" => $request->password,
-            'email' => $request->email
         ];
+
         if (Auth::attempt($credencias)) {
-            $usuario = Auth::user();
             return $this->UrlGuard($request);
         } else {
-            return Inertia::render('Login', [
+            return Inertia::render('login', [
                 'erro' => "dados do usuario incorrecto"
             ]);
         }
@@ -43,6 +43,5 @@ class LoginController extends Controller
         } else {
           return Redirect::route('dashboard');
         }
-
     }
 }

@@ -73,7 +73,7 @@ import NewCurrency from './newCurrency.vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { Inertia } from "@inertiajs/inertia"
 import Addpassword from './AddPassword.vue'
-import { useForm } from "@inertiajs/inertia-vue3";
+import { useForm } from "@inertiajs/inertia";
 import { onMounted, reactive ,ref , defineEmits,defineProps} from "@vue/runtime-core";
 import axios from "axios";
 

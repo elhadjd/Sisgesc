@@ -11,19 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('caixas', function (Blueprint $table) {
             $table->id();
-            $table->string('surname')->nullable();
-            $table->unsignedBigInteger('company_id')->nullable();
+            $table->string('name');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedBigInteger('company_id');
             $table->foreign('company_id')->references('id')->on('companies');
-            $table->string('name')->nullable();
-            $table->string('email')->nullable();
-            $table->string('image')->nullable();
-            $table->enum('nivel',['user','admin'])->nullable()->default('user');
-            $table->string('password')->nullable();
             $table->enum('state',['active','inactive'])->nullable()->default('active');
-            $table->timestamp('data')->nullable();
-            $table->rememberToken();
+            $table->string('password');
             $table->timestamps();
         });
     }
@@ -33,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('caixas');
     }
 };

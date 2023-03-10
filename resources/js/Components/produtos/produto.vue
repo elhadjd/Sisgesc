@@ -241,7 +241,7 @@
 </template>
 
 <script setup>
-import { useForm } from "@inertiajs/inertia-vue3";
+import { useForm } from "@inertiajs/inertia";
 import { onMounted, reactive, ref } from "@vue/runtime-core";
 import { useStore } from "vuex";
 import EntradaSaida from "./EntradaSaida.vue";

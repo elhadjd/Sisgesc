@@ -10,8 +10,25 @@ class company extends Model
 {
     use HasFactory;
 
+    protected $with = ['apps','license'];
+
     public function users()
     {
         return $this->HasMany(User::class);
+    }
+    
+    public function license()
+    {
+        return $this->hasOne(license::class);
+    }
+
+    public function apps()
+    {
+        return $this->HasMany(app::class);
+    }
+
+    public function caixas()
+    {
+        return $this->HasMany(caixa::class);
     }
 }

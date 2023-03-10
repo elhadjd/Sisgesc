@@ -27,7 +27,7 @@ import { faArrowDown, faArrowsSplitUpAndLeft, faArrowUpRightFromSquare, faCartSh
 library.add(faTwitter,faUpLong,faRotateRight,faRightLong,faChartLine,faDownLong,faChartGantt,faArrowsSplitUpAndLeft,faArrowUpRightFromSquare,faStar,faCartShopping,faProductHunt,faMoneyCheckDollar,faPlus,faUsers,faPenToSquare,faEye,faSackDollar,faMoneyBill1Wave,faHandHoldingDollar,faTrash,faFloppyDisk,faOutdent,faTags,
 faArrowDown,faReceipt,faXmark)
 
-const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
+const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Sisgesc';
 
 createInertiaApp({
     title: (title) => `${title} - ${appName}`,

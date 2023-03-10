@@ -15,34 +15,29 @@ class AppSeeder extends Seeder
     {
         DB::table('apps')->insert([
             [
-                'app_name' => 'faturacao',
-                'empresa' => '1',
-                'estado' => 'Inativo',
+                'name' => 'faturacao',
+                'company_id'=> '1',
                 'image' => 'faturation.png',
             ],
 
             [
-                'app_name' => 'configuracoes',
-                'empresa' => '1',
-                'estado' => 'Inativo',
+                'name' => 'configuracoes',
+                'company_id'=> '1',
                 'image' => 'config.png',
             ],
             [
-                'app_name' => 'funcionarios',
-                'empresa' => '1',
-                'estado' => 'Inativo',
+                'name' => 'funcionarios',
+                'company_id'=> '1',
                 'image' => 'funcionarios.png',
             ],
             [
-                'app_name' => 'compra',
-                'empresa' => '1',
-                'estado' => 'Inativo',
+                'name' => 'compra',
+                'company_id'=> '1',
                 'image' => 'purchur.jpg',
             ],
             [
-                'app_name' => 'pontodevenda',
-                'empresa' => '1',
-                'estado' => 'Inativo',
+                'name' => 'pontodevenda',
+                'company_id'=> '1',
                 'image' => 'point-of-sale.png',
             ]
         ]);

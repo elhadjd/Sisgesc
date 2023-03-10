@@ -13,17 +13,17 @@ class PaymentMethodsSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('methodo_de_pagamento')->insert([
+        DB::table('payment_methods')->insert([
             [
-                'nome' => 'Numerario',
+                'name' => 'Numerario',
                 'valor' => 0,
             ],
             [
-                'nome' => 'Transferencia',
+                'name' => 'Transferencia',
                 'valor' => 0,
             ],
             [
-                'nome' => 'Multicaixa',
+                'name' => 'Multicaixa',
                 'valor' => 0,
             ]
         ]);
