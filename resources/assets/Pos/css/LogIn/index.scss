@@ -1,0 +1,68 @@
+.Principal{
+    @include modal;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    .Formulario{
+        width: 300px;
+        height: 250px;
+        background-color: #F0EEEE;
+        border-radius: 3px;
+        .Header{
+            width: 100%;
+            height: 40%;
+            padding: 10px;
+            h1{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                font: 15pt arial;
+                font-weight: 600;
+                color: #000000a8;
+            }
+            div{
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                img{
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50px;
+                }
+            }
+        }
+        .Container{
+            height: 35%;
+            padding: 10px;
+            border-bottom: 1px solid #0000001c;
+            input{
+                width: 100%;
+                font: 25pt arial;
+                font-weight: 600;
+                border: none;
+                outline: none;
+                box-shadow: 0 0 0 0;
+                padding: 0 !important;
+                background-color: #dcdcdc73;
+                border-bottom: 1px solid #c2c2c242;
+                color: #00000086;
+                text-align: center;
+            }
+        }
+        .Footer{
+            height: 25%;
+            display: flex;
+            justify-content: right;
+            align-items: center;
+            padding: 10px;
+            .sair{
+                @include botao_descartar;
+            }
+            .entrar{
+                @include botao_normal;
+                margin-left: 10px;
+            }
+        }
+    }
+}
